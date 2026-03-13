@@ -1,0 +1,25 @@
+.form { display: grid; gap: 12px; }
+
+.row { display: grid; gap: 6px; }
+label { font-weight: 700; }
+
+input, textarea {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font: inherit;
+  background: var(--bg);
+  color: var(--text);
+}
+textarea { resize: vertical; min-height: 120px; }
+
+.error { margin: 0; color: #ef4444; font-weight: 650; }
+
+.actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+.note { margin: 0; color: var(--muted); }
+
+.disabledLink {
+  opacity: 0.55;
+  pointer-events: none;
+}

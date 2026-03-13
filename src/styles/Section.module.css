@@ -1,0 +1,26 @@
+.section {
+  padding: 70px 18px;
+}
+
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 22px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(24px, 3.2vw, 34px);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  color: var(--muted);
+  max-width: 68ch;
+}
+
+.content { margin-top: 18px; }

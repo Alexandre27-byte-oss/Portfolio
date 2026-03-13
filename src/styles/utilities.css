@@ -1,0 +1,18 @@
+.srOnly {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  border: 0; white-space: nowrap;
+}
+
+/* Reveal animations (désactivées si reduced motion via hook + dataset) */
+[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(10px);
+}
+[data-reveal="shown"] {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms ease, transform 500ms ease;
+}

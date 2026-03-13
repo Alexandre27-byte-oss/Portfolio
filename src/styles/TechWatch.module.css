@@ -1,0 +1,27 @@
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+.topic { margin: 0 0 10px; font-size: 16px; letter-spacing: -0.01em; }
+.note { margin: 0; color: var(--muted); }
+
+.sources {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+.sources a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; }
+.sources a:hover { color: var(--accent); border-bottom-color: color-mix(in oklab, var(--accent) 50%, transparent); }
+
+@media (max-width: 860px) {
+  .wrap { grid-template-columns: 1fr; }
+}
