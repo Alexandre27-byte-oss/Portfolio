@@ -24,7 +24,7 @@ const About = forwardRef<HTMLElement>(function About(_, ref) {
             />
           </div>
           <div className={styles.heroContent}>
-            <h1 className={styles.lead}>Duchemin Alexandre</h1>
+            <h1 className={styles.lead}>Alexandre Duchemin</h1>
             <p className={styles.subtitle}>Étudiant en BTS SIO option SLAM</p>
           </div>
         </div>
