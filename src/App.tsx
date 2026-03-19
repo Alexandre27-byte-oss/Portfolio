@@ -3,8 +3,8 @@ import styles from "./styles/App.module.css";
 import "./styles/global.css";
 
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
 import About from "./components/About";
+import Hero from "./components/Hero";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import TechWatch from "./components/TechWatch";
@@ -14,7 +14,14 @@ import Footer from "./components/Footer";
 import { useTheme } from "./hooks/useTheme";
 import { useActiveSection } from "./hooks/useActiveSection";
 
-const SECTION_IDS = ["hero", "about", "skills", "projects", "watch", "contact"] as const;
+const SECTION_IDS = [
+  "about",
+  "hero",
+  "skills",
+  "projects",
+  "watch",
+  "contact",
+] as const;
 
 export default function App() {
   const { theme, setTheme, toggleTheme } = useTheme();
@@ -22,14 +29,14 @@ export default function App() {
 
   const navItems = useMemo(
     () => [
-      { id: "hero", label: "Accueil" },
-      { id: "about", label: "À propos" },
+      { id: "about", label: "Accueil" },
+      { id: "hero", label: "Présentation" },
       { id: "skills", label: "Compétences" },
       { id: "projects", label: "Projets" },
       { id: "watch", label: "Veille" },
       { id: "contact", label: "Contact" },
     ],
-    []
+    [],
   );
 
   return (
@@ -47,8 +54,8 @@ export default function App() {
       />
 
       <main id="main" className={styles.main}>
-        <Hero ref={registerSectionRef("hero")} />
         <About ref={registerSectionRef("about")} />
+        <Hero ref={registerSectionRef("hero")} />
         <Skills ref={registerSectionRef("skills")} />
         <Projects ref={registerSectionRef("projects")} />
         <TechWatch ref={registerSectionRef("watch")} />

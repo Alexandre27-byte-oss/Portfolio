@@ -1,31 +1,79 @@
 :root {
+  /* Couleurs base */
   --bg: #ffffff;
   --surface: #f6f7f9;
   --text: #0f172a;
   --muted: #475569;
   --border: #e2e8f0;
-  --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
-
+  
+  /* Ombres renforcées */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow: 0 20px 40px rgba(2, 6, 23, 0.12);
+  --shadow-glass: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-dark-bg: rgba(15, 27, 51, 0.4);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+--gradient-accent: linear-gradient(135deg, var(--accent) 0%, #1e40af 100%);
+  --gradient-glass: linear-gradient(145deg, var(--glass-bg), rgba(255, 255, 255, 0.08));
+  --text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --text-premium: #1e293b;
+  
+  /* Accents vibrants */
   --accent: #2563eb;
   --accent-2: #0ea5e9;
+  --accent-glow: 0 0 20px rgba(37, 99, 235, 0.4);
 
-  --radius: 16px;
+  --radius: 24px;
   --max: 1060px;
+  --blur: 20px;
 
   --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-  --focus: 0 0 0 3px rgba(37, 99, 235, 0.3);
+  --focus: 0 0 0 4px rgba(37, 99, 235, 0.4);
 }
 
 :root[data-theme="dark"] {
-  --bg: #0b1220;
+  --bg: #0a0e1a;
   --surface: #0f1b33;
-  --text: #e5e7eb;
-  --muted: #a6b0c0;
-  --border: rgba(226, 232, 240, 0.14);
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.2);
+  
+  --shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  --shadow-glass: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  
+  --glass-bg: rgba(15, 27, 51, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-dark-bg: rgba(10, 14, 26, 0.7);
+  
+  --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  --gradient-accent: linear-gradient(135deg, #60a5fa 0%, #22c55e 100%);
+  --accent-glow: 0 0 25px rgba(96, 165, 250, 0.5);
 
   --accent: #60a5fa;
   --accent-2: #22c55e;
+  
+  --radius: 24px;
+  --blur: 25px;
+  
+--focus: 0 0 0 4px rgba(96, 165, 250, 0.5);
+
+ /* Background anim vars */
+  --bg-particle-1: radial-gradient(circle at 20% 80%, #60a5fa40 0%, transparent 50%);
+  --bg-particle-2: radial-gradient(circle at 80% 20%, #8b5cf640 0%, transparent 50%);
+  --bg-particle-3: radial-gradient(circle at 40% 40%, #22c55e40 0%, transparent 50%);
 }
+
+body {
+  background: 
+    var(--gradient-primary),
+    var(--bg);
+  background-attachment: fixed;
+}
+

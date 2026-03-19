@@ -8,6 +8,10 @@
 }
 
 .header {
+  text-align: center;
+}
+
+.header {
   margin-bottom: 22px;
 }
 
@@ -19,7 +23,10 @@
 
 .subtitle {
   margin: 8px 0 0;
-  color: var(--muted);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1.2em;
+  line-height: 1.6;
   max-width: 68ch;
 }
 
