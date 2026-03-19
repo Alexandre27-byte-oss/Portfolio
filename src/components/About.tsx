@@ -18,7 +18,7 @@ const About = forwardRef<HTMLElement>(function About(_, ref) {
         <div className={styles.headerBlock}>
           <div className={styles.avatarHero}>
             <img
-              src="/src/Photo-Portfolio.jpeg"
+              src="/public/Photo-Portfolio.jpeg"
              
               className={styles.avatarHeroImg}
             />
