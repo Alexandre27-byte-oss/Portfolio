@@ -133,7 +133,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             </a>
           ) : (
             <span className={styles.disabled} aria-disabled="true">
-              GitHub — à venir
+              GitHub — à faire
             </span>
           )}
 
@@ -143,7 +143,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             </a>
           ) : (
             <span className={styles.disabled} aria-disabled="true">
-              Live — à venir
+              Live — à faire
             </span>
           )}
         </div>

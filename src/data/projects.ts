@@ -29,8 +29,8 @@ export const projects: Project[] = [
       "Responsive + PWA"
     ],
     role: [
-      "Lead dev front-end (80%)",
-      "Déploiement Vercel/Netlify"
+      "dev front-end",
+      "Déploiement Vercel"
     ],
     features: [
       "Recherche full-text",
@@ -49,8 +49,8 @@ export const projects: Project[] = [
     context: "Exercice technique React - Simulation outil support client.",
     objectives: [
       "Gestion CRUD tickets",
-      "Notifications realtime (local)",
-      "Design system réutilisable"
+      "Notifications",
+      "Design réutilisable"
     ],
     role: ["Développeur fullstack front"],
     features: [
@@ -58,19 +58,19 @@ export const projects: Project[] = [
       "Filtres dynamiques",
       "Thème switch"
     ],
-    skills: ["React Context", "CSS Grid", "Component Library"]
+    skills: ["React", "CSS", "Composent Library"]
   },
   {
     title: "Landing Page Produit",
     description: "Landing performante, accessible, SEO de base, animations discrètes et responsive soigné.",
-    stack: ["React", "Vite", "TypeScript"],
+    stack: ["React", "Vite"],
     tags: ["SEO", "Performance", "Responsive"],
     githubUrl: "https://github.com/username/clean-landing",
     liveUrl: "https://clean-landing.example.com",
     image: "/projects/landing-preview.jpg",
     context: "Landing commerciale pour SaaS - Objectif conversion.",
     objectives: [
-      "Score Lighthouse > 95",
+      
       "SEO on-page optimisé",
       "Animations GSAP fluides"
     ],
@@ -80,6 +80,6 @@ export const projects: Project[] = [
       "Formulaire intégré",
       "PWA ready"
     ],
-    skills: ["React Router", "TypeScript", "GSAP", "SEO techniques"]
+    skills: ["React", "TypeScript",  "techniques SEO"]
   }
 ];

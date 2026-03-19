@@ -96,15 +96,8 @@ export default function ContactForm({ toEmail }: { toEmail: string }) {
             if (status !== "ready") e.preventDefault();
           }}
         >
-          Envoyer par email
         </a>
       </div>
-
-      <p className={styles.note} role="status" aria-live="polite">
-        {status === "ready"
-          ? "OK. Clique sur “Envoyer par email” pour ouvrir ton client mail."
-          : "Pas de backend : tu peux connecter un service plus tard (Formspree, Netlify Forms, etc.)."}
-      </p>
     </form>
   );
 }
