@@ -1642,8 +1642,9 @@ section {
     <div class="projects-controls reveal">
       <span class="label">tag</span>
       <button class="chip active" data-filter="all">all</button>
+      <button class="chip" data-filter="Python">python</button>
       <button class="chip" data-filter="React">react</button>
-      <button class="chip" data-filter="TypeScript">typescript</button>
+      <button class="chip" data-filter="SQL">sql / bdd</button>
       <button class="chip" data-filter="UX">ux-ui</button>
     </div>
 
@@ -1848,75 +1849,64 @@ section {
    DATA
    ============================================ */
 const SKILLS = {
-  "Front-end": ["React", "JavaScript", "HTML", "CSS", "Vite"],
-  "Back-end": ["Node.js", "Python", "Flask"],
-  "Bases de données": ["MySQL"],
-  "Outils": ["GitHub", "Figma", "VS Code"]
+  "Front-end": ["HTML5", "CSS3", "JavaScript", "React", "Vite", "Axios"],
+  "Back-end": ["Python", "Flask", "API REST", "SQLAlchemy"],
+  "Bases de données": ["MySQL", "SQLite", "SQL", "Modélisation BDD"],
+  "Outils & Méthodes": ["Git", "GitHub", "Vercel", "VS Code", "FullCalendar.js"]
 };
 
 const PROJECTS = [
   {
-    title: "Dashboard Notes de Frais",
-    description: "SPA orientée productivité avec filtres, états, export et UX simple. Conçue pour être maintenable et rapide.",
-    stack: ["React", "TypeScript", "Vite"],
-    tags: ["React", "TypeScript", "UX"],
+    title: "MédecinTicket — Maison de Santé",
+    description: "Application web multi-rôles pour une maison de santé : espace médecin, espace patient, gestion des rendez-vous, dossiers médicaux et planning calendrier.",
+    stack: ["HTML", "CSS", "JavaScript", "Python", "Flask", "SQLite"],
+    tags: ["Python", "SQL", "UX"],
     githubUrl: "https://github.com/Alexandre27-byte-oss",
     liveUrl: "",
-    context: "Projet BTS SIO option SLAM — Gestion des notes de frais pour une PME.",
+    context: "Projet BTS SIO option SLAM — Application web de gestion pour une maison de santé pluridisciplinaire fictive, avec trois profils d'accès distincts : médecin, patient, administrateur.",
     objectives: [
-      "CRUD sécurisé avec authentification JWT",
-      "Filtres avancés et export PDF / Excel",
-      "Responsive, approche PWA"
+      "Authentification par rôle avec redirection vers le bon dashboard",
+      "Espace médecin : liste patients, rendez-vous du jour, planning (FullCalendar.js), documents",
+      "Espace patient : infos personnelles, prise de RDV, dossier médical (upload PDF/images)",
+      "Base de données SQLite : utilisateurs, patients, médecins, RDV, dossiers, prescriptions"
     ],
-    role: ["Développement front-end", "Déploiement Vercel"],
+    role: ["Conception & développement full-stack", "Modélisation base de données", "Intégration FullCalendar.js"],
     features: [
-      "Recherche full-text",
-      "Statuts automatisés",
-      "Mode sombre / clair"
+      "Connexion par rôle : médecin / patient / administrateur",
+      "Inscription avec persistance des comptes (localStorage)",
+      "Planning médecin via FullCalendar.js (vue mensuelle)",
+      "Prise et annulation de RDV depuis l'espace patient",
+      "Upload, consultation et suppression de documents médicaux",
+      "Gestion de session via sessionStorage (protection des pages)",
+      "Notifications toast animées"
     ],
-    skills: ["React Hooks", "TypeScript", "Vite", "CSS Modules", "Accessibilité (WCAG)"]
+    skills: ["HTML5 / CSS3", "JavaScript vanilla", "Python / Flask", "SQLite / SQL", "sessionStorage / localStorage", "FullCalendar.js", "Modélisation BDD (MCD → MLD → SQL)"]
   },
   {
-    title: "Application Tickets Support",
-    description: "Interface front claire avec gestion de tickets, recherche et statuts. Priorité à un design system minimal.",
-    stack: ["React", "CSS Modules"],
-    tags: ["React", "UX"],
+    title: "PPE Suivi Sportif",
+    description: "Application full-stack de suivi d'entraînements — API REST Flask, base MySQL, interface React. Deux rôles : coach (suivi de ses adhérents) et adhérent (saisie de ses séances).",
+    stack: ["React", "Python", "Flask", "MySQL"],
+    tags: ["Python", "SQL", "React", "UX"],
     githubUrl: "https://github.com/Alexandre27-byte-oss",
     liveUrl: "",
-    context: "Exercice technique React — simulation d'un outil de support client.",
+    context: "Projet BTS SIO option SLAM — Application de suivi sportif permettant à un coach de lier des adhérents et consulter leurs séances, et à l'adhérent de saisir et consulter ses entraînements.",
     objectives: [
-      "Gestion CRUD des tickets",
-      "Notifications en temps réel",
-      "Design réutilisable"
+      "API REST Flask structurée en blueprints (utilisateurs, séances)",
+      "Modèle MySQL : utilisateurs, liaisons coach-adhérent, séances, exercices, séries",
+      "Frontend React multi-vues avec React Router et Axios",
+      "Contrôle d'accès par rôle côté serveur (coach / adhérent)"
     ],
-    role: ["Développeur front-end"],
+    role: ["Développement full-stack", "Conception base de données", "Architecture API REST", "Intégration React / Flask"],
     features: [
-      "Drag & drop des priorités",
-      "Filtres dynamiques",
-      "Bascule de thème"
+      "Dashboard coach : liste adhérents liés, consultation de leurs séances",
+      "Liaison coach-adhérent via email",
+      "Dashboard adhérent : liste et détail de ses séances",
+      "Création de séance avec exercices et séries dynamiques",
+      "Détail séance : exercices, groupes musculaires, séries (reps, poids, repos)",
+      "Hachage des mots de passe (pbkdf2_sha256), CORS configuré",
+      "ORM SQLAlchemy pour la gestion des modèles"
     ],
-    skills: ["React", "CSS", "Component Library"]
-  },
-  {
-    title: "Landing Page Produit",
-    description: "Landing performante, accessible, SEO soigné, animations discrètes et responsive travaillé.",
-    stack: ["React", "Vite"],
-    tags: ["React", "UX"],
-    githubUrl: "https://github.com/Alexandre27-byte-oss",
-    liveUrl: "",
-    context: "Landing commerciale pour un SaaS — objectif : conversion.",
-    objectives: [
-      "SEO on-page optimisé",
-      "Animations fluides",
-      "Performance 90+ Lighthouse"
-    ],
-    role: ["Développement front + motion design"],
-    features: [
-      "Animations au scroll",
-      "Formulaire intégré",
-      "PWA-ready"
-    ],
-    skills: ["React", "TypeScript", "Techniques SEO"]
+    skills: ["Python / Flask", "SQLAlchemy ORM", "MySQL", "React (Hooks, Router)", "Axios", "Vite", "API REST", "Modélisation BDD"]
   }
 ];
 
