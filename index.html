@@ -2436,8 +2436,7 @@
         description: "Application web de gestion de notes de frais : saisie de dépenses, filtrage par catégorie et statut, export CSV / JSON / PDF, tableau de bord avec totaux en temps réel.",
         stack: ["HTML", "CSS", "JavaScript"],
         tags: ["UX"],
-        githubUrl: "https://projet-note-de-frais.vercel.app/",
-
+        liveUrl: "https://projet-note-de-frais.vercel.app/",
         context: "Projet BTS SIO option SLAM — Application front-end de gestion de notes de frais pour une PME. Déployée sur Vercel, sans dépendance back-end.",
         objectives: ["Saisie et suivi des dépenses professionnelles", "Filtrage par catégorie (Transport, Repas, Hébergement, Matériel) et statut (En attente, Validé, Refusé)", "Export des données en CSV, JSON et impression PDF", "Tableau de bord avec totaux automatiques en temps réel"],
         role: ["Développement front-end complet", "Déploiement Vercel"],
@@ -2449,8 +2448,7 @@
         description: "Application web multi-rôles pour une maison de santé : espace médecin, espace patient, gestion des rendez-vous, dossiers médicaux et planning calendrier.",
         stack: ["HTML", "CSS", "JavaScript", "Python", "Flask", "SQLite"],
         tags: ["Python", "SQL", "UX"],
-        githubUrl: "https://projet-ticket-medecin.vercel.app/",
-        liveUrl: "",
+        liveUrl: "https://projet-ticket-medecin.vercel.app/",
         context: "Projet BTS SIO option SLAM — Application web de gestion pour une maison de santé pluridisciplinaire fictive, avec trois profils d'accès distincts : médecin, patient, administrateur.",
         objectives: ["Authentification par rôle avec redirection vers le bon dashboard", "Espace médecin : liste patients, rendez-vous du jour, planning (FullCalendar.js), documents", "Espace patient : infos personnelles, prise de RDV, dossier médical (upload PDF/images)", "Base de données SQLite : utilisateurs, patients, médecins, RDV, dossiers, prescriptions"],
         role: ["Conception & développement full-stack", "Modélisation base de données", "Intégration FullCalendar.js"],
@@ -2458,11 +2456,22 @@
         skills: ["HTML5 / CSS3", "JavaScript vanilla", "Python / Flask", "SQLite / SQL", "sessionStorage / localStorage", "FullCalendar.js", "Modélisation BDD (MCD → MLD → SQL)"]
       },
       {
+        title: "BiblioStock — Gestion de Bibliothèque",
+        description: "Application web de gestion de bibliothèque : catalogue de livres, suivi des emprunts, gestion des adhérents et tableau de bord statistique complet.",
+        stack: ["HTML", "CSS", "JavaScript"],
+        tags: ["UX"],
+        liveUrl: "https://projet-gestion-de-stocks.vercel.app/",
+        context: "Projet BTS SIO option SLAM — Application front-end de gestion pour une bibliothèque fictive. Déployée sur Vercel, entièrement en JavaScript vanilla.",
+        objectives: ["Gérer un catalogue de livres avec stock et disponibilité", "Suivre les emprunts en cours, retournés et en retard", "Gérer les adhérents et leurs abonnements", "Fournir un tableau de bord avec statistiques et alertes"],
+        role: ["Développement front-end complet", "Déploiement Vercel"],
+        features: ["Tableau de bord : totaux livres, disponibles, empruntés, adhérents", "Catalogue avec filtres par genre et disponibilité, CRUD complet", "Gestion des emprunts avec statuts (en cours, retourné, en retard)", "Gestion des adhérents (standard, étudiant, senior, famille)", "Statistiques : répartition par genre, top 5 livres, activité 30 jours", "Modales d'ajout pour livres, adhérents et emprunts"],
+        skills: ["JavaScript vanilla", "Manipulation du DOM", "Gestion d'état front-end", "CSS responsive", "Visualisation de données", "UX / interfaces métier"]
+      },
+      {
         title: "PPE Suivi Sportif",
         description: "Application full-stack de suivi d'entraînements — API REST Flask, base MySQL, interface React. Deux rôles : coach (suivi de ses adhérents) et adhérent (saisie de ses séances).",
         stack: ["React", "Python", "Flask", "MySQL"],
         tags: ["Python", "SQL", "React", "UX"],
-        githubUrl: "https://github.com/Alexandre27-byte-oss",
         liveUrl: "",
         context: "Projet BTS SIO option SLAM — Application de suivi sportif permettant à un coach de lier des adhérents et consulter leurs séances, et à l'adhérent de saisir et consulter ses entraînements.",
         objectives: ["API REST Flask structurée en blueprints (utilisateurs, séances)", "Modèle MySQL : utilisateurs, liaisons coach-adhérent, séances, exercices, séries", "Frontend React multi-vues avec React Router et Axios", "Contrôle d'accès par rôle côté serveur (coach / adhérent)"],
@@ -2526,7 +2535,6 @@
     <div class="modal-section"><h4>stack</h4><div class="modal-stack">${p.stack.map(s => `<span>${s}</span>`).join('')}</div></div>
     ${lb('objectifs', p.objectives)}${lb('mon rôle', p.role)}${lb('fonctionnalités', p.features)}${lb('compétences bts', p.skills)}
     <div class="modal-section"><div class="modal-actions">
-      ${p.githubUrl ? `<a class="btn" href="${p.githubUrl}" target="_blank" rel="noreferrer"><span>./github</span><svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>` : ''}
       ${p.liveUrl ? `<a class="btn ghost" href="${p.liveUrl}" target="_blank" rel="noreferrer"><span>./live</span></a>` : ''}
     </div></div>`;
       modal.classList.add('open'); overlay.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
