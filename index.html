@@ -418,7 +418,7 @@
               <span class="line-num">3</span> <span class="fn">role</span>: <span class="str">"Dev en formation"</span>,<br/>
               <span class="line-num">4</span> <span class="fn">school</span>: <span class="str">"BTS SIO · SLAM"</span>,<br/>
               <span class="line-num">5</span> <span class="fn">stack</span>: [<span class="str">"Python"</span>, <span class="str">"JS"</span>,<br/>
-              <span class="line-num">6</span> <span class="str">"SQL"</span>, <span class="str">"React"</span>],<br/>
+              <span class="line-num">6</span> <span class="str">"SQL"</span>, <span class="str">"React"</span>, <span class="str">"Power Apps"</span>],<br/>
               <span class="line-num">7</span> <span class="fn">status</span>: <span class="str">"learning++"</span>,<br/>
               <span class="line-num">8</span> <span class="cm">// always curious</span><br/>
               <span class="line-num">9</span>};
@@ -468,6 +468,7 @@
           <button class="chip" data-filter="React">react</button>
           <button class="chip" data-filter="SQL">sql / bdd</button>
           <button class="chip" data-filter="PHP">php</button>
+          <button class="chip" data-filter="Power Apps">power apps</button>
           <button class="chip" data-filter="UX">ux-ui</button>
         </div>
         <div class="projects-list reveal" id="projectsList"></div>
@@ -597,7 +598,8 @@
       "Front-end": ["HTML5", "CSS3", "JavaScript", "React", "Vite", "Axios"],
       "Back-end": ["Python", "Flask", "PHP 8", "API REST", "SQLAlchemy", "MVC"],
       "Bases de données": ["MySQL", "SQLite", "SQL", "Modélisation BDD"],
-      "Outils & Méthodes": ["Git", "GitHub", "Vercel", "VS Code", "FullCalendar.js", "Chart.js", "Bootstrap 5"]
+      "Outils & Méthodes": ["Git", "GitHub", "Vercel", "VS Code", "FullCalendar.js", "Chart.js", "Bootstrap 5"],
+      "Low-Code & Métier": ["Power Apps", "Dataverse", "Power Automate", "SharePoint"]
     };
 
     const PROJECTS = [
@@ -648,6 +650,18 @@
         role: ["Développement full-stack PHP (MVC complet)", "Modélisation BDD (MCD, MLD, script SQL avec données de démonstration)", "Intégration Bootstrap 5.3 et Chart.js 4.x", "Rédaction documentation technique (15 pages)"],
         features: ["Dashboard coach avec graphiques Chart.js : évolution poids/reps par adhérent et exercice", "CRUD adhérents : création, modification, upload photo, soft-delete", "Bibliothèque de 20 exercices répartis en groupes musculaires", "Saisie de performances : poids, répétitions, ressenti émoji (1 à 5)", "Validation coach : verrouillage définitif des performances en 1 clic", "Plans nutritionnels : objectifs macros (calories, protéines, glucides, lipides) + repas détaillés", "Pagination 10 éléments/page, tokens CSRF sur tous les formulaires POST"],
         skills: ["PHP 8.2 (MVC, POO, PDO, sessions)", "MySQL 8 (FK CASCADE, ENUM, contraintes CHECK)", "Architecture MVC sans framework", "Bootstrap 5.3 / Chart.js 4.x", "Sécurité web (bcrypt, CSRF, contrôle d'accès)", "Modélisation BDD (MCD → MLD → SQL)"]
+      },
+      {
+        title: "GMP — Gestion du Personnel SNCF",
+        description: "Application Power Apps interne développée en alternance pour la SNCF : calendrier de pointage des agents, gestion des vacations, astreintes, roulements hebdomadaires. Déployée en production pour ~200 agents.",
+        stack: ["Power Apps", "Dataverse", "Power Automate", "SharePoint", "YAML"],
+        tags: ["Power Apps"],
+        liveUrl: "",
+        context: "Projet d'alternance — Application métier développée seul pour la SNCF dans le cadre du BTS SIO SLAM. L'app GMP (Gestion du Management du Personnel) remplace un suivi manuel sur Excel et est utilisée quotidiennement par environ 200 agents.",
+        objectives: ["Gérer le calendrier de pointage des agents par site, région et équipe", "Permettre la saisie et modification des vacations avec présence, astreinte et commentaire", "Automatiser l'application des roulements hebdomadaires", "Stocker et synchroniser les données en temps réel via Dataverse"],
+        role: ["Développement complet de l'application Power Apps (seul)", "Modélisation des données dans Dataverse", "Intégration Power Automate pour les automatisations", "Déploiement en production à la SNCF"],
+        features: ["Calendrier de pointage interactif par agent, date et équipe", "Pop-up de saisie/modification : présence, astreinte (toggle), commentaire multiligne", "Système de roulements hebdomadaires automatiques", "Patch vers Dataverse avec gestion des conflits et suppression conditionnelle", "Filtres dynamiques par site, région, équipe", "Contrôle d'accès par rôle utilisateur"],
+        skills: ["Power Apps (Canvas App, YAML, formules)", "Dataverse (modélisation, relations, colonnes calculées)", "Power Automate (flux automatisés)", "Gestion de projet en environnement professionnel réel", "Sécurité des données (contrôle d'accès, Dataverse permissions)"]
       }
     ];
 
@@ -705,7 +719,7 @@
       <div class="modal-section"><h4>stack</h4><div class="modal-stack">${p.stack.map(s=>`<span>${s}</span>`).join('')}</div></div>
       ${lb('objectifs',p.objectives)}${lb('mon rôle',p.role)}${lb('fonctionnalités',p.features)}${lb('compétences bts',p.skills)}
       <div class="modal-section"><div class="modal-actions">
-        ${p.liveUrl?`<a class="btn ghost" href="${p.liveUrl}" target="_blank" rel="noreferrer"><span>./live</span></a>`:'<span style="font-family:var(--f-mono);font-size:0.75rem;color:var(--ink-muted);">// démo locale — projet BTS</span>'}
+        ${p.liveUrl?`<a class="btn ghost" href="${p.liveUrl}" target="_blank" rel="noreferrer"><span>./live</span></a>`:`<span style="font-family:var(--f-mono);font-size:0.75rem;color:var(--ink-muted);">${p.tags.includes('Power Apps') ? '// projet professionnel — SNCF (accès interne)' : '// démo locale — projet BTS'}</span>`}
       </div></div>`;
       modal.classList.add('open');overlay.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
     }
