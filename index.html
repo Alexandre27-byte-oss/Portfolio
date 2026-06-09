@@ -485,7 +485,7 @@
             <p class="sub">IA · cybersécurité · tech du jeu vidéo — les sujets que je suis.</p>
           </div>
         </div>
-        <p class="watch-intro reveal">Je suis les évolutions récentes de l'informatique : <strong>intelligence artificielle</strong>, <strong>cybersécurité</strong>, frameworks et tech du jeu vidéo. Cette veille m'aide à suivre les innovations, comprendre les nouvelles menaces, et observer l'évolution des outils — à l'aide de curateurs et d'agents IA.</p>
+        <p class="watch-intro reveal">Je suis les évolutions récentes de l'informatique : <strong>intelligence artificielle</strong>, <strong>cybersécurité</strong>et tech du jeu vidéo. Cette veille m'aide à suivre les innovations, comprendre les nouvelles menaces, et observer l'évolution des outils — à l'aide de curateurs et d'agents IA.</p>
         <div class="watch-sources reveal reveal-stagger" id="watchSources"></div>
       </div>
     </section>
@@ -596,10 +596,10 @@
 
     /* DATA */
     const SKILLS = {
-      "Front-end": ["HTML5", "CSS3", "JavaScript", "React", "Vite", "Axios"],
-      "Back-end": ["Python", "Flask", "PHP 8", "API REST", "SQLAlchemy", "MVC"],
+      "Front-end": ["HTML", "CSS", "JavaScript", "React", "Vite"],
+      "Back-end": ["Python", "Flask", "PHP ", "API REST"],
       "Bases de données": ["MySQL", "SQLite", "SQL", "Modélisation BDD"],
-      "Outils & Méthodes": ["Git", "GitHub", "Vercel", "VS Code", "FullCalendar.js", "Chart.js", "Bootstrap 5"],
+      "Outils & Méthodes": ["Git", "GitHub", "Vercel", "VS Code",  "Bootstrap"],
       "Low-Code & Métier": ["Power Apps", "Dataverse", "Power Automate", "SharePoint"]
     };
 
@@ -623,9 +623,9 @@
         tags: ["Python", "SQL", "UX"],
         liveUrl: "https://projet-ticket-medecin.vercel.app/",
         context: "Projet BTS SIO option SLAM — Application web de gestion pour une maison de santé pluridisciplinaire fictive, avec trois profils d'accès distincts : médecin, patient, administrateur.",
-        objectives: ["Authentification par rôle avec redirection vers le bon dashboard", "Espace médecin : liste patients, rendez-vous du jour, planning (FullCalendar.js), documents", "Espace patient : infos personnelles, prise de RDV, dossier médical (upload PDF/images)", "Base de données SQLite : utilisateurs, patients, médecins, RDV, dossiers, prescriptions"],
+        objectives: ["Authentification par rôle avec redirection vers le bon dashboard", "Espace médecin : liste patients, rendez-vous du jour, planning, documents", "Espace patient : infos personnelles, prise de RDV, dossier médical (upload PDF/images)", "Base de données SQLite : utilisateurs, patients, médecins, RDV, dossiers, prescriptions"],
         role: ["Conception & développement full-stack", "Modélisation base de données", "Intégration FullCalendar.js"],
-        features: ["Connexion par rôle : médecin / patient / administrateur", "Inscription avec persistance des comptes (localStorage)", "Planning médecin via FullCalendar.js (vue mensuelle)", "Prise et annulation de RDV depuis l'espace patient", "Upload, consultation et suppression de documents médicaux", "Gestion de session via sessionStorage (protection des pages)", "Notifications toast animées"],
+        features: ["Connexion par rôle : médecin / patient / administrateur", "Inscription avec persistance des comptes", "Planning médecin via FullCalendar.js (vue mensuelle)", "Prise et annulation de RDV depuis l'espace patient", "Upload, consultation et suppression de documents médicaux"],
         skills: ["HTML5 / CSS3", "JavaScript vanilla", "Python / Flask", "SQLite / SQL", "sessionStorage / localStorage", "FullCalendar.js", "Modélisation BDD (MCD → MLD → SQL)"]
       },
       {
@@ -647,9 +647,9 @@
         tags: ["PHP", "SQL", "UX"],
         liveUrl: "",
         context: "Projet BTS SIO option SLAM — Application de gestion de salle de musculation développée en PHP 8 MVC sans framework. Le coach gère les adhérents, crée les séances et valide les performances ; l'adhérent consulte son programme, saisit ses performances et accède à son plan nutritionnel.",
-        objectives: ["Architecture MVC PHP 8 sans framework, routing front controller (index.php)", "Modèle MySQL 8 tables : users, séances, exercices, session_exercises, performances, nutrition, repas", "Workflow performances : brouillon → validé avec verrouillage après validation coach", "Sécurité : bcrypt coût 12, tokens CSRF, PDO préparées, contrôle d'accès par rôle"],
+        objectives: ["Modèle MySQL tables : users, séances, exercices, session_exercises, performances, nutrition, repas", "Workflow performances : brouillon → validé avec verrouillage après validation coach", "Sécurité : contrôle d'accès par rôle"],
         role: ["Développement full-stack PHP (MVC complet)", "Modélisation BDD (MCD, MLD, script SQL avec données de démonstration)", "Intégration Bootstrap 5.3 et Chart.js 4.x", "Rédaction documentation technique (15 pages)"],
-        features: ["Dashboard coach avec graphiques Chart.js : évolution poids/reps par adhérent et exercice", "CRUD adhérents : création, modification, upload photo, soft-delete", "Bibliothèque de 20 exercices répartis en groupes musculaires", "Saisie de performances : poids, répétitions, ressenti émoji (1 à 5)", "Validation coach : verrouillage définitif des performances en 1 clic", "Plans nutritionnels : objectifs macros (calories, protéines, glucides, lipides) + repas détaillés", "Pagination 10 éléments/page, tokens CSRF sur tous les formulaires POST"],
+        features: ["Dashboard coach avec graphiques : évolution poids/reps par adhérent et exercice", "CRUD adhérents : création, modification, upload photo, delete", "Bibliothèque de 20 exercices répartis en groupes musculaires", "Saisie de performances : poids, répétitions, ressenti émoji (1 à 5)", "Validation coach : verrouillage définitif des performances en 1 clic", "Plans nutritionnels : objectifs macros (calories, protéines, glucides, lipides) + repas détaillés"],
         skills: ["PHP 8.2 (MVC, POO, PDO, sessions)", "MySQL 8 (FK CASCADE, ENUM, contraintes CHECK)", "Architecture MVC sans framework", "Bootstrap 5.3 / Chart.js 4.x", "Sécurité web (bcrypt, CSRF, contrôle d'accès)", "Modélisation BDD (MCD → MLD → SQL)"]
       },
       {
@@ -667,10 +667,10 @@
     ];
 
     const WATCH = [
-      { type: "article · ai", title: "La menace croissante de l'IA dans les cyberattaques", source: "Axios", url: "https://www.axios.com/2026/03/29/claude-mythos-anthropic-cyberattack-ai-agents" },
-      { type: "article · gaming-tech", title: "Une grosse mise à jour de l'upscaling IA de la PS5 Pro", source: "The Verge", url: "https://www.theverge.com/games/895396/playstation-pssr-upscaling-cyberpunk-2077-silent-hill" },
-      { type: "article · gdc-2026", title: "L'IA était partout à la GDC, sauf dans les jeux eux-mêmes", source: "The Verge", url: "https://www.theverge.com/games/897982/gdc-2026-ai-game-developer-conference" },
-      { type: "article · market", title: "La PS5 et la PS5 Pro augmentent encore de prix", source: "AP News", url: "https://apnews.com/article/b3e056e80192e612b74a56769683ece6" }
+      { type: "article · ia-tools", title: "Microsoft Build 2026 : 7 nouveaux modèles IA maison et un écosystème pour agents autonomes", source: "Blog Nouvelles Technologies · 3 juin 2026", url: "https://www.blog-nouvelles-technologies.fr/371005/microsoft-build-2026-tout-savoir/" },
+      { type: "article · ia-models", title: "Claude domine le code IA en juin 2026 — OpenAI sort du top 10", source: "Blog du Modérateur · 2 juin 2026", url: "https://www.blogdumoderateur.com/ia-meilleurs-modeles-code-developpement-web-juin-2026/" },
+      { type: "article · gaming-ia", title: "Exclusivité PS5 : assets générés par IA détectés, la polémique enflamme l'industrie", source: "Appel Aura Ecologie · 8 juin 2026", url: "https://appel-aura-ecologie.fr/exclusivite-ps5-contenu-genere-par-ia-detecte-2-studios-impliques-ce-qui-fait-deja-polemique-dans-lindustrie/" },
+      { type: "article · gaming-events", title: "Summer Game Fest 2026 : Resident Evil, FF7 Revelation, Alien Isolation 2 — le résumé complet", source: "Millenium · 8 juin 2026", url: "https://www.millenium.org/news/430467.html" }
     ];
 
     /* RENDER */
