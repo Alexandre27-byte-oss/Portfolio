@@ -156,7 +156,7 @@ img{display:block;max-width:100%}
 .stat:nth-child(2) b{color:#0f9f86}.stat:nth-child(3) b{color:#6b3fe0}
 .stat small{color:var(--win-muted);font-size:.74rem}
 .actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.3rem}
-.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1rem;border-radius:9px;font-size:.84rem;font-weight:600;background:var(--accent);color:#fff;transition:.15s}
+.btn{text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1rem;border-radius:9px;font-size:.84rem;font-weight:600;background:var(--accent);color:#fff;transition:.15s}
 .btn:hover{filter:brightness(1.1)}
 .btn.sec{background:#fff;color:var(--win-ink);border:1px solid var(--win-line)}
 .btn.sec:hover{background:#f1f3f8;filter:none}
@@ -178,6 +178,13 @@ img{display:block;max-width:100%}
 .file b{display:block;font-size:.86rem;line-height:1.3;margin-bottom:.35rem}
 .ex-status{padding:.45rem .9rem;border-top:1px solid var(--win-line);font-size:.74rem;color:var(--win-muted)}
 
+.ex-filter{display:flex;flex-wrap:wrap;gap:.3rem;align-items:center;padding:.5rem .9rem;border-bottom:1px solid var(--win-line);font-size:.74rem;color:var(--win-muted)}
+.ex-filter button{font-family:var(--mono);font-size:.72rem;font-weight:600;padding:.2rem .55rem;border-radius:999px;border:1px solid var(--win-line);background:#fff;color:var(--win-soft)}
+.ex-filter button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.e5b{display:flex;flex-wrap:wrap;gap:.2rem;margin-top:.35rem}
+.e5b i{font-style:normal;font-family:var(--mono);font-size:.66rem;font-weight:600;padding:.08rem .38rem;border-radius:5px;background:var(--accent-soft);color:var(--accent)}
+.e5-list li::before{content:none}.e5-list li{padding-left:0}.e5-list li b{color:var(--accent);font-family:var(--mono);margin-right:.5rem}
+.proofs{display:flex;flex-wrap:wrap;gap:.45rem}
 /* project detail */
 .pd-head{padding:1.4rem 1.5rem;border-bottom:1px solid var(--win-line);display:flex;gap:1rem;align-items:flex-start}
 .pd-head .ico{width:52px;height:52px;font-size:26px;border-radius:14px;flex:none}
@@ -249,6 +256,30 @@ img{display:block;max-width:100%}
 .win.term-win .ctrl button.x:hover{background:var(--danger);color:#fff}
 .win.term-win .body{background:#0d1017}
 
+/* E5 */
+.c-green{background:linear-gradient(160deg,#4ade80,#16a34a)}
+.e5-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.2rem 1.5rem;border-bottom:1px solid var(--win-line)}
+.e5-meta{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;padding:.8rem 1.5rem;border-bottom:1px solid var(--win-line);background:#f1f3f8;font-size:.82rem;color:var(--win-soft)}
+.e5-meta b{color:var(--win-muted);font-weight:500;margin-right:.4rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+.e5-wrap{overflow-x:auto;padding:1rem 1.5rem 1.5rem}
+.e5{border-collapse:separate;border-spacing:0;width:100%;min-width:820px;font-size:.84rem;background:#fff;border:1px solid var(--win-line);border-radius:10px;overflow:hidden}
+.e5 th,.e5 td{border-bottom:1px solid var(--win-line);border-right:1px solid var(--win-line);padding:.6rem .7rem;vertical-align:middle}
+.e5 th:last-child,.e5 td:last-child{border-right:none}
+.e5 thead th{background:#f7f8fb;font-weight:500;font-size:.72rem;color:var(--win-soft);text-align:center;line-height:1.35}
+.e5 thead th.e5-real{text-align:left;font-size:.8rem;color:var(--win-ink);font-weight:600}
+.e5 th small,.e5 td.e5-real small{display:block;font-weight:400;color:var(--win-muted);font-size:.74rem;margin-top:.15rem}
+.e5-c{width:96px}.e5-c span{display:block;font-size:.8rem;font-weight:700;color:var(--accent);margin-bottom:.2rem}
+.e5-per{width:110px;text-align:center;font-family:var(--mono);font-size:.74rem;color:var(--win-soft)}
+.e5-real{min-width:230px}
+.e5-ck{text-align:center;color:var(--ok);font-size:18px}
+.e5-sec td{background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+.e5-empty{text-align:center;color:var(--win-muted);font-style:italic;font-size:.8rem}
+.e5 tfoot td{background:#f7f8fb;border-bottom:none}
+.e5-ck.tot{color:var(--win-ink);font-weight:700;font-size:.9rem}
+
+.e5-leg{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.3rem 1.2rem;margin-top:.9rem;font-size:.76rem;color:var(--win-soft)}
+.e5-leg b{color:var(--accent);margin-right:.45rem}
+
 /* notepad */
 .np{font-family:var(--mono);font-size:.84rem;line-height:1.75;padding:1.1rem 1.3rem;color:#2a3142;white-space:pre-wrap}
 .np b{color:var(--accent)}
@@ -311,39 +342,50 @@ const ME = {
 };
 
 const SKILLS = [
-  {cat:"Systèmes", icon:"ti-server", c:"c-blue", list:[["Windows Server",2],["Active Directory / GPO",2],["Linux Debian / Ubuntu",2],["PowerShell",2],["Bash",2]]},
+  {cat:"Systèmes", icon:"ti-server", c:"c-blue", list:[["Windows Server",2],["Active Directory / GPO",2],["Linux Debian / Ubuntu",2],["PowerShell",2],["Bash",2],["Samba / partages",2]]},
   {cat:"Réseaux", icon:"ti-network", c:"c-teal", list:[["TCP/IP & adressage",3],["VLAN & routage",2],["DHCP / DNS",2],["Cisco IOS",1],["Packet Tracer",2]]},
   {cat:"Sécurité", icon:"ti-shield-lock", c:"c-rose", list:[["Pare-feu pfSense",1],["VPN",1],["Sauvegardes",2],["RGPD",2],["Durcissement",1]]},
-  {cat:"Virtualisation", icon:"ti-stack-2", c:"c-violet", list:[["VMware",2],["Proxmox",1],["VirtualBox",3],["Docker",1]]},
-  {cat:"Supervision & ITSM", icon:"ti-activity", c:"c-amber", list:[["GLPI",1],["Zabbix",1],["Gestion de tickets",2]]}
+  {cat:"Virtualisation", icon:"ti-stack-2", c:"c-violet", list:[["Hyper-V",2],["VMware",2],["VirtualBox",3],["Docker",2]]},
+  {cat:"Supervision & ITSM", icon:"ti-activity", c:"c-amber", list:[["GLPI",2],["Zabbix",2],["Prometheus / Grafana",2],["Gestion de tickets",2]]}
 ];
 const LVL = ["", "Découverte", "Intermédiaire", "Maîtrisé"];
 
 const PROJECTS = [
-  {title:"Infrastructure Active Directory", cat:"Systèmes", icon:"ti-sitemap", c:"c-blue", status:"todo",
-   desc:"Mise en place d'un domaine Windows Server avec AD DS, DNS et DHCP, unités d'organisation et stratégies de groupe.",
-   stack:["Windows Server","AD DS","DNS","DHCP","GPO","PowerShell"],
-   objectives:["Créer un domaine et une arborescence d'OU","Automatiser la création d'utilisateurs en PowerShell","Déployer des GPO (lecteurs réseau, sécurité, fond d'écran)"]},
-  {title:"Segmentation réseau par VLAN", cat:"Réseaux", icon:"ti-route", c:"c-teal", status:"todo",
-   desc:"Conception d'un réseau d'entreprise segmenté en VLAN avec routage inter-VLAN et plan d'adressage documenté.",
-   stack:["Cisco","Packet Tracer","VLAN","Routage"],
-   objectives:["Réaliser un plan d'adressage IP","Configurer switchs et routeur (router-on-a-stick)","Tester et documenter la connectivité"]},
-  {title:"Pare-feu & VPN avec pfSense", cat:"Sécurité", icon:"ti-wall", c:"c-rose", status:"todo",
-   desc:"Déploiement d'un pare-feu pfSense : règles de filtrage, DMZ et accès distant sécurisé par VPN.",
-   stack:["pfSense","OpenVPN","NAT","DMZ"],
-   objectives:["Définir une politique de filtrage","Isoler les services exposés en DMZ","Mettre en place un accès VPN nomade"]},
-  {title:"Parc informatique avec GLPI", cat:"Supervision", icon:"ti-ticket", c:"c-amber", status:"todo",
-   desc:"Installation de GLPI pour l'inventaire du parc et la gestion des incidents, avec remontée automatique des postes.",
-   stack:["GLPI","Linux","Apache","MariaDB","Agent GLPI"],
-   objectives:["Installer GLPI sur un serveur LAMP","Remonter l'inventaire des postes","Gérer un cycle de ticket complet"]},
-  {title:"Supervision avec Zabbix", cat:"Supervision", icon:"ti-heartbeat", c:"c-amber", status:"todo",
-   desc:"Supervision des serveurs et équipements réseau : métriques, seuils d'alerte et notifications.",
-   stack:["Zabbix","SNMP","Linux"],
-   objectives:["Superviser serveurs et équipements","Configurer alertes et tableaux de bord"]},
-  {title:"Virtualisation & sauvegarde", cat:"Systèmes", icon:"ti-database-export", c:"c-violet", status:"todo",
-   desc:"Hyperviseur Proxmox hébergeant les VM du lab, avec politique de sauvegarde et procédure de restauration testée.",
-   stack:["Proxmox","Linux","Sauvegarde","Snapshots"],
-   objectives:["Monter un hyperviseur de type 1","Planifier les sauvegardes","Tester une restauration complète"]}
+  {title:"Virtualisation Hyper-V et contrôleur de domaine", cat:"Virtualisation", icon:"ti-stack-2", c:"c-violet", status:"done", period:"2026-2027", e5:[1,5],
+   desc:"Mise en place d'un lab Hyper-V pour la PME Iris Services : réseau NAT, contrôleur de domaine et déploiement industrialisé de 3 serveurs à partir d'un disque modèle Sysprep.",
+   stack:["Hyper-V","Windows Server 2025","PowerShell","Sysprep","VHDX","AD DS"],
+   objectives:["Activer Hyper-V et créer un commutateur interne avec NAT","Installer une VM de génération 2 pour le contrôleur de domaine","Généraliser un disque modèle et déployer FS1, NODE1, NODE2 en disques différenciels","Dimensionner la mémoire selon le rôle (dynamique, ou statique pour la virtualisation imbriquée)","Comparer points de contrôle standard et de production"],
+   proofs:[]},
+  {title:"Services réseau Linux : DHCP, DNS et SSH", cat:"Réseaux", icon:"ti-network", c:"c-teal", status:"done", period:"2026-2027", e5:[1,2,5],
+   desc:"Déploiement sous Debian 12 d'un serveur DHCP et d'un DNS BIND9 pour le réseau 192.168.100.0/24, puis durcissement de l'accès SSH.",
+   stack:["Debian 12","isc-dhcp-server","BIND9","OpenSSH","fail2ban"],
+   objectives:["Distribuer les adresses avec réservation par MAC","Créer les zones DNS directe et inverse","Intégrer DHCP et DNS côté client","Sécuriser SSH par clés et restriction des utilisateurs","Diagnostiquer une panne injectée"],
+   proofs:[{label:"Compte rendu TP1", file:"docs/TP1_DHCP_DNS.pdf"}]},
+  {title:"Serveur web et intranet Apache", cat:"Systèmes", icon:"ti-world", c:"c-sky", status:"done", period:"2026-2027", e5:[3,5],
+   desc:"Publication de plusieurs sites sur un serveur Apache via des VirtualHosts, dont un intranet accessible en HTTPS et filtré par pare-feu.",
+   stack:["Debian 12","Apache 2","VirtualHost","HTTPS","ufw","DNS CNAME"],
+   objectives:["Créer des alias DNS pour chaque site","Configurer des VirtualHosts nommés","Forcer la redirection HTTP vers HTTPS","Filtrer les accès avec ufw"],
+   proofs:[{label:"Compte rendu TP2", file:"docs/TP2_Apache.pdf"}]},
+  {title:"Partage de fichiers Samba et droits", cat:"Systèmes", icon:"ti-folders", c:"c-blue", status:"done", period:"2026-2027", e5:[1,5],
+   desc:"Mise en place de partages Samba par groupe avec gestion fine des droits Linux, accessibles depuis Windows et Linux.",
+   stack:["Debian 12","Samba","SGID","Droits Unix","CIFS"],
+   objectives:["Gérer utilisateurs, groupes et bit SGID","Créer un partage commun et des dossiers personnels","Restreindre l'accès par groupe et par réseau (SMB2 minimum)","Monter le partage automatiquement côté client"],
+   proofs:[{label:"Compte rendu TP3", file:"docs/TP3_Samba.pdf"}]},
+  {title:"Automatisation et sauvegarde en Bash", cat:"Systèmes", icon:"ti-terminal-2", c:"c-dark", status:"done", period:"2026-2027", e5:[1,2],
+   desc:"Écriture de scripts Bash d'administration robustes : menu root, sauvegarde journalisée avec retour arrière, planification par cron.",
+   stack:["Bash","cron","tee","set -euo pipefail"],
+   objectives:["Sécuriser l'exécution (contrôle root, droits 750)","Journaliser chaque étape avec niveaux INFO/ERREUR","Gérer les erreurs par codes de retour et retour arrière","Planifier sauvegardes et contrôles avec cron"],
+   proofs:[{label:"Compte rendu TP4", file:"docs/TP4_Bash.pdf"}]},
+  {title:"Supervision et helpdesk de l'infrastructure", cat:"Supervision", icon:"ti-activity", c:"c-amber", status:"done", period:"2026-2027", e5:[1,2,4,5],
+   desc:"Construction d'une chaîne de supervision complète d'une infrastructure Windows/Linux : métriques, logs, alertes et création automatique de tickets GLPI.",
+   stack:["Docker Compose","Prometheus","Grafana","Zabbix","Loki","Alertmanager","GLPI","Uptime Kuma","SNMP"],
+   objectives:["Déployer 3 VM : Windows Server, Debian supervisée, serveur de supervision","Collecter les métriques (Node, Windows et MySQL Exporter, agents Zabbix, SNMP)","Créer 5 tableaux de bord Grafana et centraliser les logs avec Loki","Configurer des triggers Zabbix et un webhook qui crée un ticket GLPI","Valider la chaîne sur une panne Apache simulée"],
+   proofs:[]},
+  {title:"Portfolio AlexOS", cat:"Présence en ligne", icon:"ti-device-desktop", c:"c-green", status:"done", period:"Oct. 2026", e5:[3,4,6],
+   desc:"Conception et publication de mon portfolio professionnel sous forme de bureau virtuel, versionné sur GitHub et déployé automatiquement sur Vercel.",
+   stack:["HTML/CSS","JavaScript","Git","GitHub","Vercel"],
+   objectives:["Définir le besoin et choisir une maquette parmi plusieurs propositions","Versionner le projet avec Git et GitHub","Déployer automatiquement à chaque push sur Vercel","Présenter mes réalisations et ma veille technologique"],
+   proofs:[{label:"Site en ligne", file:"/"},{label:"GitHub", file:"https://github.com/Alexandre27-byte-oss"}]}
 ];
 
 const WATCH = [
@@ -351,6 +393,16 @@ const WATCH = [
   {type:"Infrastructure", icon:"ti-server-2", c:"c-blue", title:"Virtualisation : les alternatives à VMware après le rachat par Broadcom", src:"À compléter · source, date", url:"#"},
   {type:"IA & sécurité", icon:"ti-brain", c:"c-violet", title:"L'IA au service des attaquants… et des défenseurs", src:"À compléter · source, date", url:"#"},
   {type:"Réseaux", icon:"ti-lock-access", c:"c-teal", title:"Zero Trust : repenser la sécurité du réseau d'entreprise", src:"À compléter · source, date", url:"#"}
+];
+
+/* Tableau de synthèse E5 — c = numéros des compétences cochées (1 à 6, voir E5_COMP) */
+const E5_FILE = "Tableau_de_synthese_E5.xlsx";
+const E5_SHORT = ["Patrimoine informatique","Incidents et assistance","Présence en ligne","Mode projet","Mise à disposition d'un service","Développement professionnel"];
+const E5_COMP = ["Gérer le patrimoine informatique","Répondre aux incidents et aux demandes d'assistance et d'évolution","Développer la présence en ligne de l'organisation","Travailler en mode projet","Mettre à disposition des utilisateurs un service informatique","Organiser son développement professionnel"];
+const E5 = [
+  {section:"Réalisations en cours de formation", rows:PROJECTS.map(p=>({title:p.title, docs:p.stack.slice(0,4).join(", "), period:p.period, c:p.e5}))},
+  {section:"Réalisations en milieu professionnel — première année", rows:[]},
+  {section:"Réalisations en milieu professionnel — seconde année", rows:[]}
 ];
 
 const TIMELINE = [
@@ -378,7 +430,7 @@ const APPS = {
       <p class="lead">Mon bagage en développement (Python, PHP, SQL, Power Platform) et mon alternance à la <strong>SNCF</strong> me donnent un vrai atout côté scripting, automatisation et compréhension des besoins métier.</p>
       <div class="stats">
         <div class="stat"><b>SISR</b><small>Option du BTS SIO</small></div>
-        <div class="stat"><b>${PROJECTS.length}</b><small>Projets SISR prévus</small></div>
+        <div class="stat"><b>${PROJECTS.length}</b><small>Projets SISR réalisés</small></div>
         <div class="stat"><b>SNCF</b><small>Expérience en alternance</small></div>
       </div>
       <div class="actions">
@@ -402,17 +454,21 @@ const APPS = {
       <div class="ex-side"><div class="lbl">Dossiers</div>${cats.map((c,i)=>`<button data-cat="${c}" class="${i?'':'on'}"><i class="ti ${i?'ti-folder':'ti-folders'}"></i>${c}</button>`).join('')}</div>
       <div class="ex-main">
         <div class="ex-path"><i class="ti ti-home"></i>/home/alexandre/<span data-path>projets</span></div>
+        <div class="ex-filter">Compétence E5 :${[0,1,2,3,4,5,6].map(i=>`<button data-c="${i}" class="${i?'':'on'}" title="${i?esc(E5_COMP[i-1]):'Toutes'}">${i?'C'+i:'Toutes'}</button>`).join('')}</div>
         <div class="ex-grid" data-grid></div>
         <div class="ex-status" data-count></div>
       </div></div>`},
-    mount(w){
-      const draw=c=>{const list=c==="Tous"?PROJECTS:PROJECTS.filter(p=>p.cat===c);
-        w.querySelector('[data-grid]').innerHTML=list.map(p=>`<button class="file" data-proj="${PROJECTS.indexOf(p)}"><span class="ico ${p.c}"><i class="ti ${p.icon}"></i></span><span><b>${esc(p.title)}</b><span class="st ${p.status}">${STATUS[p.status]}</span></span></button>`).join('');
-        w.querySelector('[data-path]').textContent='projets'+(c==="Tous"?'':'/'+c.toLowerCase());
-        w.querySelector('[data-count]').textContent=`${list.length} élément(s) · ${PROJECTS.filter(p=>p.status==='done').length} terminé(s)`;
+    mount(w,opt){
+      let cat="Tous",comp=0;
+      const draw=()=>{const list=PROJECTS.filter(p=>(cat==="Tous"||p.cat===cat)&&(!comp||p.e5.includes(comp)));
+        w.querySelector('[data-grid]').innerHTML=list.length?list.map(p=>`<button class="file" data-proj="${PROJECTS.indexOf(p)}"><span class="ico ${p.c}"><i class="ti ${p.icon}"></i></span><span><b>${esc(p.title)}</b><span class="st ${p.status}">${STATUS[p.status]}</span><span class="e5b">${p.e5.map(n=>`<i>C${n}</i>`).join('')}</span></span></button>`).join(''):'<p class="sub">Aucun projet pour ce filtre.</p>';
+        w.querySelector('[data-path]').textContent='projets'+(cat==="Tous"?'':'/'+cat.toLowerCase())+(comp?' ?C'+comp:'');
+        w.querySelector('[data-count]').textContent=`${list.length} élément(s) · ${PROJECTS.filter(p=>p.status==='done').length} terminé(s)`+(comp?` · ${E5_COMP[comp-1]}`:'');
         w.querySelectorAll('[data-proj]').forEach(b=>b.onclick=()=>openProject(+b.dataset.proj));};
-      w.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{w.querySelectorAll('[data-cat]').forEach(x=>x.classList.toggle('on',x===b));draw(b.dataset.cat)});
-      draw("Tous");
+      w.setComp=n=>{comp=n;w.querySelectorAll('[data-c]').forEach(x=>x.classList.toggle('on',+x.dataset.c===n));draw()};
+      w.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{w.querySelectorAll('[data-cat]').forEach(x=>x.classList.toggle('on',x===b));cat=b.dataset.cat;draw()});
+      w.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>w.setComp(+b.dataset.c));
+      draw();
     }},
 
   parcours:{title:"Parcours", icon:"ti-timeline", c:"c-teal", w:560, h:500, desk:true, render:()=>`
@@ -445,6 +501,24 @@ const APPS = {
   terminal:{title:"Terminal — alexandre@alexos", icon:"ti-terminal-2", c:"c-dark", w:660, h:420, desk:true, label:"Terminal", cls:"term-win", render:()=>`<div class="term" data-term><div data-out></div><div class="in"><span class="l"><span class="pr">alexandre@alexos</span>:<span class="pa">~</span>$&nbsp;</span><input data-in aria-label="Commande" autocomplete="off" spellcheck="false"></div></div>`,
     mount(w){initTerminal(w)}},
 
+  e5:{title:"Tableau de synthèse — Épreuve E5", icon:"ti-table", c:"c-green", w:980, h:600, desk:true, label:"Épreuve E5", render:()=>`
+    <div class="e5-head">
+      <div><div class="h" style="font-size:1.3rem">Tableau de synthèse des réalisations</div><div class="sub">BTS SIO · Épreuve E5 · option SISR</div></div>
+      <a class="btn" href="${E5_FILE}" download><i class="ti ti-download"></i>Télécharger (.xlsx)</a>
+    </div>
+    <div class="e5-meta"><span><b>Candidat</b>${ME.name}</span><span><b>Centre</b>IRIS Médiaschool, Rouen</span><span><b>Option</b>☑ SISR ☐ SLAM</span><span><b>Portfolio</b>${esc(location.host||'—')}</span></div>
+    <div class="e5-wrap"><table class="e5">
+      <thead><tr><th class="e5-real">Réalisation<br><small>documents et productions associés</small></th><th class="e5-per">Période</th>${E5_COMP.map((c,i)=>`<th class="e5-c" title="Voir les projets : ${esc(c)}" data-comp="${i+1}" style="cursor:pointer"><span>C${i+1}</span>${esc(E5_SHORT[i])}</th>`).join('')}</tr></thead>
+      <tbody>${E5.map(s=>`<tr class="e5-sec"><td colspan="${2+E5_COMP.length}">${esc(s.section)}</td></tr>`+
+        (s.rows.length?s.rows.map(r=>`<tr><td class="e5-real"><b>${esc(r.title)}</b><small>${esc(r.docs)}</small></td><td class="e5-per">${esc(r.period)}</td>${E5_COMP.map((_,i)=>`<td class="e5-ck">${r.c.includes(i+1)?'<i class="ti ti-check"></i>':''}</td>`).join('')}</tr>`).join('')
+        :`<tr><td class="e5-empty" colspan="${2+E5_COMP.length}">À compléter</td></tr>`)).join('')}
+      </tbody>
+      <tfoot><tr><td class="e5-real"><b>Total</b></td><td></td>${E5_COMP.map((_,i)=>`<td class="e5-ck tot">${E5.flatMap(s=>s.rows).filter(r=>r.c.includes(i+1)).length}</td>`).join('')}</tr></tfoot>
+    </table>
+    <ol class="e5-leg">${E5_COMP.map((c,i)=>`<li><b>C${i+1}</b>${esc(c)}</li>`).join('')}</ol>
+    <p class="sub" style="font-size:.78rem;margin-top:.7rem"><i class="ti ti-pointer"></i> Clique sur une compétence (C1 à C6) pour afficher les projets qui la prouvent.</p></div>`,
+    mount(w){w.querySelectorAll('[data-comp]').forEach(th=>th.onclick=()=>{openApp('projects');wins.projects?.setComp?.(+th.dataset.comp)})}},
+
   readme:{title:"lisez-moi.txt — Bloc-notes", icon:"ti-file-text", c:"c-slate", w:480, h:380, desk:true, label:"lisez-moi.txt", render:()=>`<div class="np"><b># Bienvenue sur AlexOS</b>
 
 Ce portfolio est un petit système d'exploitation.
@@ -470,6 +544,8 @@ function openProject(i){
     <div class="sec"><p class="lead">${esc(p.desc)}</p></div>
     <div class="sec"><h4>Technologies</h4><div class="chips">${p.stack.map(s=>`<span class="chip">${esc(s)}</span>`).join('')}</div></div>
     <div class="sec"><h4>Objectifs</h4><ul>${p.objectives.map(o=>`<li>${esc(o)}</li>`).join('')}</ul></div>
+    <div class="sec"><h4>Compétences E5</h4><ul class="e5-list">${p.e5.map(n=>`<li><b>C${n}</b>${esc(E5_COMP[n-1])}</li>`).join('')}</ul></div>
+    ${p.proofs&&p.proofs.length?`<div class="sec"><h4>Documents</h4><div class="proofs">${p.proofs.map(d=>`<a class="btn sec" href="${esc(d.file)}" target="_blank" rel="noreferrer"><i class="ti ${/\.pdf$/.test(d.file)?'ti-file-type-pdf':'ti-external-link'}"></i>${esc(d.label)}</a>`).join('')}</div></div>`:''}
     ${p.status!=='done'?`<div class="sec"><div class="note"><i class="ti ti-info-circle"></i><span>Projet ${p.status==='wip'?'en cours de réalisation':'à venir'} — documentation, schémas et captures ajoutés une fois terminé.</span></div></div>`:''}`};
   openApp(id);
 }
@@ -565,7 +641,7 @@ function initTerminal(w){
   const out=w.querySelector('[data-out]'),inp=w.querySelector('[data-in]'),term=w.querySelector('[data-term]'),body=w.querySelector('.body');
   const hist=[];let hi=0;
   const print=h=>{const d=document.createElement('div');d.className='l';d.innerHTML=h;out.appendChild(d);body.scrollTop=body.scrollHeight};
-  const appIds={about:'about',apropos:'about',skills:'skills',competences:'skills',projets:'projects',projects:'projects',parcours:'parcours',veille:'veille',contact:'contact',readme:'readme'};
+  const appIds={about:'about',apropos:'about',skills:'skills',competences:'skills',projets:'projects',projects:'projects',parcours:'parcours',veille:'veille',contact:'contact',readme:'readme',e5:'e5',synthese:'e5'};
   const CMDS={
     help:()=>`<span class="y">Commandes disponibles</span>
   <span class="g">whoami</span>        qui suis-je
@@ -575,6 +651,7 @@ function initTerminal(w){
   <span class="g">ls</span> / <span class="g">cat</span>      fichiers du dossier personnel
   <span class="g">open</span> <span class="d">&lt;app&gt;</span>    ouvre une fenêtre (about, projets, veille, contact…)
   <span class="g">ping</span> <span class="d">&lt;hôte&gt;</span>   teste une connexion
+  <span class="g">e5</span>            tableau de synthèse E5
   <span class="g">contact</span>       mes coordonnées
   <span class="g">clear</span>         nettoie l'écran
   <span class="d">…et peut-être une commande secrète avec sudo.</span>`,
@@ -589,7 +666,8 @@ function initTerminal(w){
                        <span class="y">Uptime</span>   motivé depuis 2024`,
     skills:()=>SKILLS.map(s=>`<span class="m">[${s.cat}]</span> ${s.list.map(([n,l])=>n+' '+'<span class="g">'+'■'.repeat(l)+'</span><span class="d">'+'■'.repeat(3-l)+'</span>').join(' · ')}`).join('\n'),
     projects:()=>PROJECTS.map(p=>`${p.status==='done'?'<span class="g">[ OK ]</span>':p.status==='wip'?'<span class="y">[WIP ]</span>':'<span class="d">[TODO]</span>'} ${esc(p.title)} <span class="d">(${p.cat})</span>`).join('\n')+`\n<span class="d">→ open projets pour le détail</span>`,
-    ls:()=>`<span class="b">projets/</span>  <span class="b">veille/</span>  <span class="b">parcours/</span>  lisez-moi.txt  contact.vcf`,
+    ls:()=>`<span class="b">projets/</span>  <span class="b">veille/</span>  <span class="b">parcours/</span>  lisez-moi.txt  contact.vcf  <span class="g">Tableau_de_synthese_E5.xlsx</span>`,
+    e5:()=>{openApp('e5');return 'Ouverture du tableau de synthèse E5…'},
     cat:a=>{a=(a[0]||'');if(/lisez|readme/.test(a)){openApp('readme');return 'Ouverture de lisez-moi.txt…'}if(/contact/.test(a))return CMDS.contact();return a?`cat: ${esc(a)}: Aucun fichier ou dossier de ce type`:'usage : cat &lt;fichier&gt;'},
     cd:a=>{const t=(a[0]||'').replace(/\/$/,'');if(appIds[t]){openApp(appIds[t]);return `Ouverture de ${t}/…`}return t?`cd: ${esc(t)}: dossier introuvable`:''},
     open:a=>{const t=(a[0]||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');if(t==='terminal')return 'Vous y êtes déjà 😉';if(appIds[t]){openApp(appIds[t]);return `<span class="g">✓</span> ${t} ouvert`}return `open: application inconnue. Essayez : ${Object.keys(appIds).filter((k,i,arr)=>arr.indexOf(k)===i).slice(0,8).join(', ')}`},
