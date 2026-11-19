@@ -384,10 +384,10 @@ const PROJECTS = [
 ];
 
 const WATCH = [
-  {type:"Cybersécurité", icon:"ti-bug", c:"c-rose", title:"Ransomwares : évolution des techniques et des cibles", src:"À compléter · source, date", url:"#"},
-  {type:"Infrastructure", icon:"ti-server-2", c:"c-blue", title:"Virtualisation : les alternatives à VMware après le rachat par Broadcom", src:"À compléter · source, date", url:"#"},
-  {type:"IA & sécurité", icon:"ti-brain", c:"c-violet", title:"L'IA au service des attaquants… et des défenseurs", src:"À compléter · source, date", url:"#"},
-  {type:"Réseaux", icon:"ti-lock-access", c:"c-teal", title:"Zero Trust : repenser la sécurité du réseau d'entreprise", src:"À compléter · source, date", url:"#"}
+  {type:"Cybersécurité", icon:"ti-bug", c:"c-rose", title:"Rançongiciels en France : 128 attaques en 2025, Qilin en tête", src:"Infosecurity Magazine · mars 2026 (données ANSSI)", sum:"Légère baisse grâce aux opérations policières (Endgame), mais les PME restent très ciblées : sauvegardes testées et supervision sont prioritaires.", url:"https://www.infosecurity-magazine.com/news/france-anssi-ransomware-attack/"},
+  {type:"Infrastructure", icon:"ti-server-2", c:"c-blue", title:"Virtualisation : les alternatives à VMware après Broadcom", src:"StarWind · janvier 2026", sum:"Licences par abonnement et minimum de cœurs : beaucoup d'entreprises étudient Proxmox, Hyper-V ou XCP-ng et migrent progressivement.", url:"https://www.starwindsoftware.com/blog/top-10-alternatives-competitors-to-vmware-in-2026/"},
+  {type:"IA & sécurité", icon:"ti-brain", c:"c-violet", title:"L'IA accélère les cyberattaques et réduit le temps de réponse (ENISA)", src:"Euronews · 10 novembre 2026", sum:"Le rapport annuel de l'ENISA montre que l'IA profite autant aux attaquants qu'aux défenseurs : la détection doit être plus rapide et automatisée.", url:"https://fr.euronews.com/2026/11/10/lia-accelere-les-cyberattaques-et-reduit-le-temps-de-reponse-selon-enisa"},
+  {type:"Réseaux", icon:"ti-lock-access", c:"c-teal", title:"Modèle Zero Trust : les fondamentaux selon l'ANSSI", src:"ANSSI · juin 2025", sum:"Ne plus faire confiance par défaut au réseau interne : vérifier chaque accès (identité, poste, droits minimaux), en complément de la défense en profondeur.", url:"https://cyber.gouv.fr/sites/default/files/document/anssi-fondamentaux-zero-trust-v1.0.pdf"}
 ];
 
 /* Tableau de synthèse E5 — c = numéros des compétences cochées (1 à 6, voir E5_COMP) */
@@ -473,7 +473,7 @@ const APPS = {
 
   veille:{title:"Lecteur RSS — Veille", icon:"ti-rss", c:"c-amber", w:600, h:480, desk:true, label:"Veille", render:()=>`
     <div class="pad" style="padding-bottom:.6rem"><div class="h">Veille technologique</div><div class="sub">Cybersécurité, infrastructure et IA.</div></div>
-    <div>${WATCH.map(w=>`<a class="rd-item" href="${w.url}" ${w.url!=='#'?'target="_blank" rel="noreferrer"':''}><span class="ico ${w.c}"><i class="ti ${w.icon}"></i></span><span><small>${esc(w.type)}</small><b>${esc(w.title)}</b><span>${esc(w.src)}</span></span></a>`).join('')}</div>`},
+    <div>${WATCH.map(w=>`<a class="rd-item" href="${w.url}" ${w.url!=='#'?'target="_blank" rel="noreferrer"':''}><span class="ico ${w.c}"><i class="ti ${w.icon}"></i></span><span><small>${esc(w.type)}</small><b>${esc(w.title)}</b><p style="font-size:.82rem;color:var(--win-soft);margin:.15rem 0 .3rem;line-height:1.5">${esc(w.sum||"")}</p><span>${esc(w.src)}</span></span></a>`).join('')}</div>`},
 
   contact:{title:"Messagerie — Nouveau message", icon:"ti-mail", c:"c-sky", w:600, h:470, desk:true, label:"Contact", render:()=>`
     <form class="mail" novalidate>
